@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright 2018 Qualcomm Technologies International, Ltd.                                      ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<resources>
+
+    <declare-styleable name="SpeakerFragment">
+        <attr name="speakerTitle" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="ParameterView">
+        <attr name="type" format="enum">
+            <enum name="switch_button"     value="0"/>
+            <enum name="edit_text"  value="1"/>
+        </attr>
+        <attr name="title" format="string" />
+        <attr name="subtitle" format="string" />
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright 2018 Qualcomm Technologies International, Ltd.                                      ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/height_min_button" >
+
+    <Switch
+        android:id="@+id/parameter_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="0dp"
+        android:checked="false"
+        android:showText="false"/>
+
+    <EditText
+        android:id="@+id/parameter_edit_text"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:textAlignment="textEnd"
+        android:imeOptions="actionSend"
+        android:inputType="number"
+        tools:ignore="LabelFor" />
+
+    <ProgressBar
+        android:id="@+id/parameter_progress_bar"
+        android:layout_width="@dimen/size_progressbar_upgrade_option"
+        android:layout_height="@dimen/size_progressbar_upgrade_option"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:visibility="invisible"/>
+
+    <!-- the text view to display the title of the upgrade action -->
+    <TextView
+        android:id="@+id/parameter_title"
+        style="@style/AppTheme.ListText.Primary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="@dimen/margin_horizontal"
+        android:layout_toStartOf="@id/parameter_switch" />
+
+    <!-- the text view to display the explanation of the upgrade action -->
+    <TextView
+        android:id="@+id/parameter_subtitle"
+        style="@style/AppTheme.ListText.Secondary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/parameter_title"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="@dimen/margin_horizontal"
+        android:layout_toStartOf="@id/parameter_switch" />
+
+</RelativeLayout>

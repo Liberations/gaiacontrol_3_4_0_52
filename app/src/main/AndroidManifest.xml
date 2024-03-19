@@ -1,0 +1,164 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright 2017 Qualcomm Technologies International, Ltd.                                      ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.qualcomm.qti.gaiacontrol">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.LOCAL_MAC_ADDRESS" />
+    <uses-permission android:name="android.permission.LOCAL_MAC_ADDRESS" />
+    <uses-permission android:name="android.permission.LOCAL_MAC_ADDRESS" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:requestLegacyExternalStorage="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="allowBackup,GoogleAppIndexingWarning">
+
+        <activity
+            android:name=".activities.DeviceDiscoveryActivity"
+            android:configChanges="orientation"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activities.MyUpgradeActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".activities.InformationActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/activity_information_name"
+            android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".activities.RemoteActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/activity_remote_name"
+            android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".activities.TWSActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/activity_tws_name"
+            android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".activities.EqualizerActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/activity_equalizer_name"
+            android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".activities.CustomEqualizerActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/activity_custom_equalizer_name"
+            android:parentActivityName=".activities.EqualizerActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".activities.UpgradeActivity"
+            android:configChanges="orientation"
+            android:label="@string/activity_upgrade_name"
+            android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait"></activity>
+        <!--  <activity
+              android:name=".activities.MyUpgradeActivity"
+              android:configChanges="orientation"
+              android:label="@string/activity_upgrade_name"
+              android:parentActivityName=".activities.MainActivity"
+              android:screenOrientation="portrait"></activity>-->
+        <activity
+            android:name=".activities.MainActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activities.ProximityActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/activity_proximity_name"
+            android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".activities.FindMeActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/activity_find_me_name"
+            android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".activities.BatteryActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/activity_battery_name"
+            android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".activities.HeartRateActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/activity_heart_rate_name"
+            android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <service
+            android:name=".services.GAIAGATTBLEService"
+            android:exported="false" />
+
+        <service
+            android:name=".services.GAIABREDRService"
+            android:exported="false" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/mm_paths" />
+        </provider>
+
+
+    </application>
+
+</manifest>
