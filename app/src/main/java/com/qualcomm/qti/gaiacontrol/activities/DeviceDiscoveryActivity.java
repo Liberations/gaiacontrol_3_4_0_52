@@ -200,12 +200,12 @@ public class DeviceDiscoveryActivity extends BluetoothActivity implements
         int a2dp = bluetoothAdapter.getProfileConnectionState(BluetoothProfile.A2DP);
         int headset = bluetoothAdapter.getProfileConnectionState(BluetoothProfile.HEADSET);
         int health = bluetoothAdapter.getProfileConnectionState(BluetoothProfile.HEALTH);
-        Log.d(TAG, headset+"onCreate: mymac"+a2dp+"health"+health+"device");
+        Log.d(TAG, headset + "onCreate: mymac" + a2dp + "health" + health + "device");
 
         try {
             BluetoothDevice device = bluetoothAdapter.getRemoteDevice("00:02:5c:22:22:11".toUpperCase());
-            Log.d(TAG, "onCreate: mymac"+device.getAddress());
-        }catch (Exception e){
+            Log.d(TAG, "onCreate: mymac" + device.getAddress());
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -261,7 +261,9 @@ public class DeviceDiscoveryActivity extends BluetoothActivity implements
      */
     private void scanDevices(boolean scan) {
         assert mBtAdapter != null;
-
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
         if (scan && !mIsScanning) {
             mIsScanning = true;
             mHandler.postDelayed(mStopScanRunnable, Consts.SCANNING_TIME);
@@ -359,6 +361,7 @@ public class DeviceDiscoveryActivity extends BluetoothActivity implements
     public static void pairDevice(BluetoothDevice device) {
         device.createBond();
     }
+
     private void onConnectButtonClicked(@BluetoothService.Transport int transport) {
         stopScan();
         BluetoothDevice device = mTabsAdapter.getSelectedDevice();
@@ -419,7 +422,7 @@ public class DeviceDiscoveryActivity extends BluetoothActivity implements
         List<BluetoothDevice> connectedDevices = new ArrayList<>();
 
         for (BluetoothDevice device : bondedDevices) {
-            Log.d(TAG, "onCreate: "+device.getAddress());
+            Log.d(TAG, "onCreate: " + device.getAddress());
             int deviceBondState = device.getBondState();
             if (deviceBondState == BluetoothDevice.BOND_BONDED) {
                 try {
@@ -428,7 +431,7 @@ public class DeviceDiscoveryActivity extends BluetoothActivity implements
                     if (isConnected) {
                         connectedDevices.add(device);
                     }
-                    Log.d(TAG, "onCreate: "+device.getAddress()+" "+isConnected);
+                    Log.d(TAG, "onCreate: " + device.getAddress() + " " + isConnected);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
